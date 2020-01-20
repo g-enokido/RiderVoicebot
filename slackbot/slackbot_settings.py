@@ -2,6 +2,6 @@
 
 API_TOKEN = ""
 
-DEFAULT_REPLY = ""
+DEFAULT_REPLY = "デフォルトの返事だよー"
 
 PLUGINS = ['plugins']
