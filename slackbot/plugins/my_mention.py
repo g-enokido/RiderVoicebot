@@ -13,10 +13,10 @@ def random_Driver(message):
         change = open('./RiderDriver/ooo.txt', encoding="utf-8").readlines()
         change = random.choice(change)
     elif rider == 2013:
-        change = open('./RiderDriver/Ghost.txt', encoding="utf-8").readlines()
+        change = open('./RiderDriver/Gaim.txt', encoding="utf-8").readlines()
         change = random.choice(change)
     elif rider == 2015:
-        change = open('./RiderDriver/Gaim.txt', encoding="utf-8").readlines()
+        change = open('./RiderDriver/Ghost.txt', encoding="utf-8").readlines()
         change = random.choice(change)
     elif rider == 2016:
         change = open('./RiderDriver/Exaid.txt', encoding="utf-8").readlines()
