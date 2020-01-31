@@ -1,44 +1,33 @@
 from slackbot.bot import respond_to
-from slackbot.bot import listen_to
+# from slackbot.bot import listen_to
 from slackbot.bot import default_reply
 import random
+from zikudriver import rider_time
 
 
-@listen_to('ライダータイム！')
-def rider_time(messsage):
-    rider_name_list = ['ジオウ', 'ゲイツ', 'ツクヨミ', 'バールクス', 'ザモナス', 'ゾンジス']
-    rider_name = random.choice(rider_name_list)
-    reply_name = 'ライダータイム！'
+@respond_to('変身！')
+def random_Driver(message):
+    rider = random.choice([2010, 2013, 2015, 2016, 2017, 2018])
+    change = ''
+    if rider == 2010:
+        change = open('./RiderDriver/ooo.txt', encoding="utf-8").readlines()
+        change = random.choice(change)
+    elif rider == 2013:
+        change = open('./RiderDriver/Ghost.txt', encoding="utf-8").readlines()
+        change = random.choice(change)
+    elif rider == 2015:
+        change = open('./RiderDriver/Gaim.txt', encoding="utf-8").readlines()
+        change = random.choice(change)
+    elif rider == 2016:
+        change = open('./RiderDriver/Exaid.txt', encoding="utf-8").readlines()
+        change = random.choice(change)
+    elif rider == 2017:
+        change = open('./RiderDriver/Build.txt', encoding="utf-8").readlines()
+        change = random.choice(change)
+    elif rider == 2018:
+        change = rider_time
 
-    if rider_name == 'ツクヨミ':
-        reply_name += '仮面ライダーツクヨミ、ツ・ク・ヨ・ミ！'
-    elif rider_name == 'ゲイツ':
-        reply_name += '仮面ライダーゲイツ！'
-        form = random.choice(['n', 'rg', 'rs'])
-
-        if form == 'rs':
-            reply_name += 'リバイリバイリバイ！リバイリバイリバイ！リバイブ疾風！疾風！'
-        elif form == 'rg':
-            reply_name += 'リ・バ・イ・ブ剛烈！'
-    elif rider_name == 'ジオウ':
-        form = random.choice(['n', 'II', 'tri', 'grand', 'king', 'ohma'])
-        if form == 'ohma':
-            reply_name = '最高！最善！最大！最強王！オーマジオウ！'
-        elif form == 'king':
-            reply_name = 'キングタイム！仮面ライダージオウ！オーマ！'
-        elif form == 'II':
-            reply_name += '仮面ライダー！ライダー！ジオウ！ジオウ！ジオウ！II!'
-        else:
-            reply_name += '仮面ライダー！ジオウ！'
-            if form == 'tri':
-                reply_name += 'トリニティタイム！3つの力！仮面ライダージオウ！ゲイツ！ウォズ！トリニティ！トリニティ！'
-            elif form == 'grand':
-                reply_name += 'グランドタイム！クウガアギト龍騎ファイズブレイド！'
-                reply_name += '響鬼カブト電王キバディケイド！'
-                reply_name += 'ダブル・オーズフォーゼ・ウィザード鎧武ドライブ！ゴースト！エグゼイド！ビルド！祝え！仮面ライダーグランド！ジオウ！'
-    else:
-        reply_name = '仮面ライダー！' + rider_name + '!'
-    messsage.reply(reply_name)
+    message.reply(change)
 
 
 @respond_to('アナザータイム！')
