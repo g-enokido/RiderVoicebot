@@ -3,6 +3,7 @@ from slackbot.bot import respond_to
 from slackbot.bot import default_reply
 import random
 from zikudriver import rider_time
+from RiderDriver.ooo import OOO
 
 
 @respond_to('変身！')
@@ -10,8 +11,7 @@ def random_Driver(message):
     rider = random.choice([2010, 2013, 2015, 2016, 2017, 2018])
     change = ''
     if rider == 2010:
-        change = open('./RiderDriver/ooo.txt', encoding="utf-8").readlines()
-        change = random.choice(change)
+        change = OOO()
     elif rider == 2013:
         change = open('./RiderDriver/Gaim.txt', encoding="utf-8").readlines()
         change = random.choice(change)
